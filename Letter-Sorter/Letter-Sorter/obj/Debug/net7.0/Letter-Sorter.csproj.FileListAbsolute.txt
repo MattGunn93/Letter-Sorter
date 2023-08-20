@@ -1,0 +1,15 @@
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\bin\Debug\net7.0\Letter-Sorter.exe
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\bin\Debug\net7.0\Letter-Sorter.deps.json
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\bin\Debug\net7.0\Letter-Sorter.runtimeconfig.json
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\bin\Debug\net7.0\Letter-Sorter.dll
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\bin\Debug\net7.0\Letter-Sorter.pdb
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.csproj.AssemblyReference.cache
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.AssemblyInfoInputs.cache
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.AssemblyInfo.cs
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.csproj.CoreCompileInputs.cache
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.dll
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\refint\Letter-Sorter.dll
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.pdb
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\Letter-Sorter.genruntimeconfig.cache
+C:\Users\mattg\OneDrive\Documents\GitHub\Letter-Sorter\Letter-Sorter\Letter-Sorter\obj\Debug\net7.0\ref\Letter-Sorter.dll
