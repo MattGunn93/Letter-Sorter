@@ -9,32 +9,53 @@
 			var admissionDir = new DirectoryInfo(combinedLettersPath + @"\Input\Admission\" + date);
 			var scholarshipDir = new DirectoryInfo(combinedLettersPath + @"\Input\scholarship\" + date);
 			string archivePath = combinedLettersPath + @"\Archive\" + date;
+			string outputPath = combinedLettersPath + @"\Output\" + date;
 
-			//if (!Directory.Exists(archivePath))
-			//{
-			//	Directory.CreateDirectory(archivePath);
-			//}
-			//else
-			//{
-			//	throw new Exception();
-			//}
-			//var archiveDir = new DirectoryInfo(archivePath);
-
-			//LetterService.ArchiveLetters(admissionDir, archiveDir);
-			//LetterService.ArchiveLetters(scholarshipDir, archiveDir);
-
-			var admissionLetters = new Dictionary<string, string>();
-			var scholarshipLetters = new Dictionary<string, string>();
-
-			foreach(FileInfo file in admissionDir.GetFiles())
+			if (!Directory.Exists(archivePath) || !Directory.Exists(outputPath))
 			{
-				string key = Path.GetFileNameWithoutExtension(file.FullName).Split('-')[1];
-				admissionLetters.Add(key, file.Name);
+				Directory.CreateDirectory(archivePath);
+				Directory.CreateDirectory(outputPath);
 			}
-			foreach (FileInfo file in scholarshipDir.GetFiles())
+			else
 			{
-				string key = Path.GetFileNameWithoutExtension(file.FullName).Split('-')[1];
-				scholarshipLetters.Add(key, file.Name);
+				throw new Exception("One or both directories already exist!");
+			}
+			var archiveDir = new DirectoryInfo(archivePath);
+			var outputDir = new DirectoryInfo(outputPath);
+
+			LetterService.ArchiveLetters(admissionDir, archiveDir);
+			LetterService.ArchiveLetters(scholarshipDir, archiveDir);
+
+			var admissionLetters = LetterService.GetLetters(admissionDir);
+			var scholarshipLetters = LetterService.GetLetters(scholarshipDir);
+
+			if(admissionLetters != null && scholarshipLetters != null)
+			{
+				foreach (string key in admissionLetters.Keys)
+				{
+					FileInfo? admission;
+					FileInfo? scholarship;
+
+					admissionLetters.TryGetValue(key, out admission);
+					scholarshipLetters.TryGetValue(key, out scholarship);
+
+					if (admission != null && scholarship != null)
+					{
+						using (StreamWriter sw = File.AppendText(admission.FullName))
+						{
+							sw.WriteLine("\n");
+							using (StreamReader sr = File.OpenText(scholarship.FullName))
+							{
+								while(!sr.EndOfStream)
+								{
+									sw.WriteLine(sr.ReadLine());
+								}
+							}
+						}
+						scholarship.Delete();
+					}
+					admission?.MoveTo(Path.Combine(outputDir.FullName, admission.Name));
+				}
 			}
 		}
 	}
@@ -51,18 +72,20 @@
 
 	public class LetterService : ILetterService
 	{
-		static Dictionary<string, string>? GetLetters()
+		internal static Dictionary<string, FileInfo> GetLetters(DirectoryInfo dir)
 		{
-			return null;
+			var value = new Dictionary<string, FileInfo>();
+			foreach (FileInfo file in dir.GetFiles())
+			{
+				string key = Path.GetFileNameWithoutExtension(file.FullName).Split('-')[1];
+				value.Add(key, file);
+			}
+			return value;
 		}
 		internal static void ArchiveLetters(DirectoryInfo source, DirectoryInfo target)
 		{
 			foreach (FileInfo file in source.GetFiles())
 				file.CopyTo(Path.Combine(target.FullName, file.Name));
-		}
-		static void SortLetters()
-		{
-
 		}
 		public void CombineTwoLetters(string inputFile1, string inputFile2, string resultFile)
 		{
