@@ -25,7 +25,7 @@ namespace Letter_Sorter
 				Directory.CreateDirectory(archivePath + @"\Scholarship");
 				Directory.CreateDirectory(outputPath);
 			}
-			catch { }
+			catch { throw new Exception("One or both directories already exist!"); }
 
 			// Archiving letters
 			ls.ArchiveLetters(admissionDir, archivePath + @"\Admission");
